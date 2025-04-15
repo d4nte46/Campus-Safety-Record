@@ -3,8 +3,6 @@
 
   import type { Route, RouterOptions } from '@dvcol/svelte-simple-router/models';
 
-
-  import HomeComponent from './lib/Home.svelte';
   import DemoComponent from "./lib/Demo.svelte";
   import LoginComponent from "./lib/Login.svelte";
   import ReportIncidentComponent from "./lib/ReportIncident.svelte";
@@ -24,7 +22,7 @@
     {
       name: RouteName.Home,
       path: '/',
-      component: HomeComponent
+      component: LoginComponent
     },
     {
       name: RouteName.Demo,
@@ -32,9 +30,9 @@
       component: DemoComponent
     },
       {
-      name: RouteName.Login,
-      path: `/${RouteName.Login}`,
-      component: LoginComponent
+        name: RouteName.Login,
+        path: `/${RouteName.Login}`,
+        component: LoginComponent
       },
       {
           name: RouteName.Report,
@@ -76,4 +74,12 @@
         box-shadow: inset 0 0 150px 150px rgba(0, 0, 0, 0.6);
         pointer-events: none;
     }
+
+     :global(img) {
+         user-drag: none;
+         -webkit-user-drag: none;
+         user-select: none;
+         -webkit-user-select: none;
+         -ms-user-select: none;
+     }
 </style>
