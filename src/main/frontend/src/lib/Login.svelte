@@ -13,8 +13,7 @@
     };
 </script>
 
-<div class="font-[Madeleina-Sans] w-[50vw] max-w-md p-6 rounded-3xl bg-gradient-to-b from-slate-50/77 to-40% to-metallic-blue/77 shadow-xl relative overflow-hidden ">
-    <!-- GSU Logo and Title Section -->
+<!-- GSU Logo and Title Section -->
     <div class="text-center mb-6">
         <div class="flex justify-center mb-1">
             <img
@@ -69,7 +68,6 @@
             LOGIN
         </button>
     </form>
-</div>
 
 <style>
     @import "tailwindcss";
@@ -83,4 +81,5 @@
         --color-metallic-blue: #234A78;
         --color-jasper-orange: #D3941A;
     }
+
 </style>

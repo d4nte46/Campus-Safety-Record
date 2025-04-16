@@ -15,7 +15,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: Madeleina-Sans;
+  src: url("assets/MadeleinaSans-2VY3.ttf")
+}
 
+@theme {
+  --color-metallic-blue: #234A78;
+  --color-jasper-orange: #D3941A;
+}
 
 body {
   margin: 0;
@@ -40,7 +48,19 @@ h1 {
   padding: 2rem;
 }
 
-button {
+/* Hide scrollbar in Chrome, Safari, and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar in IE, Edge, and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+button, .button-like {
+  @apply w-full bg-jasper-orange font-bold tracking-wide py-3 mt-3 rounded-full text-lg text-black transition duration-200 hover:border;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;

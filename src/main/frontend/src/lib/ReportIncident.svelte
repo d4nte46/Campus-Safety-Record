@@ -16,6 +16,11 @@
     let actionsRequired = '';
     let reportedBy = '';
 
+    function redirect(link) {
+        window.location.href =
+            `${link}`;
+    }
+
     function handleSubmit() {
         // Submit logic would go here
         console.log('Incident report submitted:', {
@@ -30,10 +35,8 @@
         });
     }
 </script>
-
-    <div class="w-full max-w-3xl p-8 mx-auto bg-gray-100 rounded-md shadow-lg">
         <!-- Header -->
-        <div class="flex justify-between items-center mb-6">
+        <div class="flex justify-between items-center ">
             <h1 class="text-3xl font-bold text-black">Incident Report</h1>
             <div class="text-right">
                 <img src={GSULogo} alt="Georgia State University Logo" class="w-20 mb-2 text-black"/>
@@ -41,8 +44,8 @@
         </div>
 
         <!-- Main Form -->
+<form on:submit|preventDefault={handleSubmit} >
         <div class="p-6 border border-amber-200 rounded-md bg-white">
-            <form on:submit|preventDefault={handleSubmit} class="space-y-6">
                 <!-- Date and Location -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -131,13 +134,14 @@
 
                 <!-- Submit Button -->
                 <div class="flex justify-end">
-                    <button
-                            type="submit"
-                            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                    >
-                        Submit Report
-                    </button>
                 </div>
-            </form>
         </div>
-    </div>
+    <button
+            type="submit"
+    >
+        Submit Report
+    </button>
+</form>
+<button on:click={()=>window.location.href='/student_dashboard'}>
+    Return to Dashboard
+</button>

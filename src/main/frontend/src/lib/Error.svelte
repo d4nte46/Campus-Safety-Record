@@ -2,4 +2,7 @@
     <div class = "text-size-xl text-black">
         404 PAGE NOT FOUND
     </div>
+    <button on:click={()=>history.back()}>
+        Return to Dashboard
+    </button>
 </div>

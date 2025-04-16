@@ -6,14 +6,25 @@
   import DemoComponent from "./lib/Demo.svelte";
   import LoginComponent from "./lib/Login.svelte";
   import ReportIncidentComponent from "./lib/ReportIncident.svelte";
-  import DashboardComponent from "./lib/Dashboard.svelte";
+  import StudentDashboardComponent from "./lib/Student-Dashboard.svelte";
+  import PastReportComponent from "./lib/PastReport.svelte";
+  import AdminDashboardComponent from "./lib/Admin-Dashboard.svelte";
+  import ManageReportComponent from "./lib/Manage-Report.svelte";
+  import ForgotPasswordComponent from "./lib/ForgotPassword.svelte";
+  import CreatAccountComponent from "./lib/CreateAccount.svelte";
+  import ErrorComponent from './lib/Error.svelte';
 
   const RouteName = {
-      Home: 'home',
       Demo: 'demo',
       Login: 'login',
       Report: 'report',
-      Dashboard: 'dashboard'
+      Student_Dashboard: 'student_dashboard',
+      Admin_Dashboard: 'admin_dashboard',
+      Past_Report: 'past-reports',
+      Manage_Report: 'manage-report',
+      Forgot_Password: 'forgot-password',
+      Create_Account: 'create-account',
+      Error: 'error',
   } as const;
 
   type RouteNames = (typeof RouteName)[keyof typeof RouteName];
@@ -40,10 +51,42 @@
           component: ReportIncidentComponent
       },
       {
-          name: RouteName.Dashboard,
-          path: `/${RouteName.Dashboard}`,
-          component: DashboardComponent
+          name: RouteName.Student_Dashboard,
+          path: `/${RouteName.Student_Dashboard}`,
+          component: StudentDashboardComponent
       },
+      {
+          name: RouteName.Past_Report,
+          path: `?${RouteName.Past_Report}`,
+          component: PastReportComponent
+      },
+      {
+          name: RouteName.Admin_Dashboard,
+          path: `?${RouteName.Admin_Dashboard}`,
+          component: AdminDashboardComponent
+      },
+      {
+          name: RouteName.Manage_Report,
+          path: `?${RouteName.Manage_Report}`,
+          component: ManageReportComponent
+      },
+      {
+          name: RouteName.Forgot_Password,
+          path: `?${RouteName.Forgot_Password}`,
+          component: ForgotPasswordComponent
+      },
+      {
+          name: RouteName.Create_Account,
+          path: `?${RouteName.Create_Account}` ,
+          component: CreatAccountComponent
+      },
+      {
+          name: RouteName.Error,
+          path: '*' ,
+          component: ErrorComponent
+      },
+
+
   ] as const;
 
   export const options: RouterOptions<RouteNames> = {
