@@ -138,7 +138,13 @@
                     formErrors.confirmPassword = 'Passwords do not match';
                     return false;
                 }
-                formErrors.confirmPassword = '';
+        //     //     formErrors.confirmPassword = '';    const response = await fetch('/api/register', {
+        //     // method: 'POST',
+        //     // headers: {
+        //     //     'Content-Type': 'application/json'
+        //     // },
+        //     body: JSON.stringify(formData)
+        // });
                 return true;
             }
         };
@@ -158,6 +164,20 @@
         }
 
         // Simulate API call
+        const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+
         isSubmitting = true;
         submitStatus = { success: false, error: false, message: '' };
 
@@ -242,7 +262,7 @@
                                     type="text"
                                     autocomplete="given-name"
                                     required
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.firstName ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
+                                    class="block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.firstName ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
                                     bind:value={formData.firstName}
                                     on:blur={() => validateField('firstName')}
                             />
@@ -263,7 +283,7 @@
                                     type="text"
                                     autocomplete="family-name"
                                     required
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.lastName ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
+                                    class="block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.lastName ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
                                     bind:value={formData.lastName}
                                     on:blur={() => validateField('lastName')}
                             />
@@ -284,7 +304,7 @@
                                     type="email"
                                     autocomplete="email"
                                     required
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.email ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
+                                    class="block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.email ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
                                     bind:value={formData.email}
                                     on:blur={() => validateField('email')}
                             />
@@ -305,7 +325,7 @@
                                     type="password"
                                     autocomplete="new-password"
                                     required
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.password ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
+                                    class="block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.password ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
                                     bind:value={formData.password}
                                     on:blur={() => validateField('password')}
                             />
@@ -326,7 +346,7 @@
                                     type="password"
                                     autocomplete="new-password"
                                     required
-                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.confirmPassword ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
+                                    class="block w-full  text-black rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm {formErrors.confirmPassword ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''}"
                                     bind:value={formData.confirmPassword}
                                     on:blur={() => validateField('confirmPassword')}
                             />
